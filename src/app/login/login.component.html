@@ -1,0 +1,28 @@
+<div class="container">
+  <form [formGroup]="loginForm" fxLayout="column" (ngSubmit)="logIn()">
+
+    <h2 style="margin-bottom: 30px; text-align: center;">Login To Application</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>User Name</mat-label>
+      <input formControlName="userName" type="text" matInput placeholder="User Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput placeholder="Password" />
+    </mat-form-field>
+
+    <div class="alert alert-danger" role="alert" *ngIf="hasSubmitted && (loginForm.invalid || inValidCredentials)">
+      User name and Password is invalid
+    </div>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      style="margin-top: 20px"
+    >
+      Log In
+    </button>
+  </form>
+</div>
