@@ -9,6 +9,11 @@ Run `npm run server-start` for a json server. This will start mock up server to 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Login Credential for Application
+
+User name:- Gmk
+Password:- FIS123
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
