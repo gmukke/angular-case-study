@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": "Gmk",
+      "name": "Nicholas Runolfsdottir V",
+      "password": "FIS123",
+      "email": "Sherwood@rosamond.me",
+      "phone": "586.493.6943 x140"
+    },
+    {
+      "id": "Delphine",
+      "name": "Glenna Reichert",
+      "password": "FIS123",
+      "email": "Chaim_McDermott@dana.io",
+      "phone": "(775)976-6794 x41206"
+    },
+    {
+      "id": "MStanton",
+      "name": "Clementina DuBuque",
+      "password": "FIS123",
+      "email": "Rey.Padberg@karina.biz",
+      "phone": "(775)976-6794 x41206"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "email": "Sincere@april.biz",
+      "address": {
+        "city": "Gwenborough",
+        "zipcode": "929983874"
+      },
+      "phone": "17707368031"
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "email": "Shanna@melissa.tv",
+      "address": {
+        "city": "Wisokyburgh",
+        "zipcode": "905667771"
+      },
+      "phone": "0106926593"
+    },
+    {
+      "id": 3,
+      "name": "Clementine Bauch",
+      "email": "Nathan@yesenia.net",
+      "address": {
+        "city": "McKenziehaven",
+        "zipcode": "595904157"
+      },
+      "phone": "14631234447"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "email": "Julianne.OConner@kory.org",
+      "address": {
+        "city": "South Elvis",
+        "zipcode": "539194257"
+      },
+      "phone": "4931709623"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey Dietrich",
+      "email": "Lucio_Hettinger@annie.ca",
+      "address": {
+        "city": "Roscoeview",
+        "zipcode": "33263"
+      },
+      "phone": "2549541289"
+    },
+    {
+      "id": 6,
+      "name": "Mrs. Dennis Schulist",
+      "email": "Karley_Dach@jasper.info",
+      "address": {
+        "city": "South Christy",
+        "zipcode": "235051337"
+      },
+      "phone": "14779358478"
+    },
+    {
+      "id": 7,
+      "name": "Kurtis Weissnat",
+      "email": "Telly.Hoeger@billy.biz",
+      "address": {
+        "city": "Howemouth",
+        "zipcode": "588041099"
+      },
+      "phone": "2100676132"
+    },
+    {
+      "id": 8,
+      "name": "Nicholas Runolfsdottir V",
+      "email": "Sherwood@rosamond.me",
+      "address": {
+        "city": "Aliyaview",
+        "zipcode": "45169"
+      },
+      "phone": "5864936943"
+    },
+    {
+      "id": 9,
+      "name": "Glenna Reichert",
+      "email": "Chaim_McDermott@dana.io",
+      "address": {
+        "city": "Bartholomebury",
+        "zipcode": "764953109"
+      },
+      "phone": "775976-6794"
+    },
+    {
+      "name": "Ram More",
+      "email": "ram@gmail.com",
+      "phone": 353664473,
+      "address": {
+        "city": "Pune",
+        "zipcode": 411017
+      },
+      "id": 10
+    }
+  ]
+}
