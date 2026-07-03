@@ -34,17 +34,38 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-The Java web application (WAR) is already created and will be deployed on Oracle WebLogic 14.
+I need you to understand the target authentication architecture before suggesting any implementation.
 
-I want to use Oracle WebLogic's native SAML 2.0 libraries/APIs instead of OpenSAML/Shibboleth.
+Current environment:
 
-Please:
+* Frontend 1: Existing Angular web application using OAuth/OIDC.
+* Frontend 2: New .NET desktop application.
+* Backend: Existing Java application deployed on Oracle WebLogic 14.
+* Backend services (SOAP/REST) are already in production and should remain unchanged.
+* WebLogic Security Realm is already configured to validate JWTs for the Angular application.
 
-* Identify the Oracle WebLogic SAML 2.0 libraries/APIs that should be used.
-* Show the required Maven dependencies (if any). If the libraries are provided by WebLogic, explain how to reference them instead of bundling them.
-* Explain how to configure the application to use WebLogic's built-in SAML 2.0 Service Provider functionality.
-* Show how to initiate SAML login, receive the authenticated user, and access the authenticated `Principal` and SAML attributes from application code.
-* Explain which parts are configured in the WebLogic Administration Console and which parts must be implemented in the application.
-* Do not use Spring Boot, Spring Security SAML, OpenSAML, or Shibboleth unless Oracle's native implementation requires them.
-* Target Oracle WebLogic Server 14.
+New requirement:
 
+* The .NET desktop application must authenticate users using SAML 2.0 with an external Identity Provider (IDP).
+* We do NOT want to change the existing backend business services.
+* We do NOT want to introduce an API Gateway or proxy all backend requests.
+* The authentication component should only handle login.
+
+Proposed architecture:
+
+1. The .NET desktop application launches the browser for login.
+2. A Java broker application (deployed as a WAR on WebLogic 14) acts as the SAML 2.0 Service Provider (SP).
+3. The broker redirects the browser to the external SAML IDP.
+4. The IDP authenticates the user and posts the SAML Response back to the broker's Assertion Consumer Service (ACS).
+5. The broker validates the SAML assertion using Oracle WebLogic's native SAML capabilities if possible (avoid OpenSAML/Shibboleth unless absolutely necessary).
+6. After successful authentication, the broker returns an authentication token (preferably JWT) to the .NET desktop application.
+7. The .NET desktop application uses that token when calling the existing WebLogic SOAP/REST services.
+8. The existing backend services should continue using the current JWT validation mechanism in WebLogic Security Realm and should not need to know whether the user originally authenticated via OAuth or SAML.
+
+Please review this architecture and:
+
+* Identify any flaws or incorrect assumptions.
+* Explain whether WebLogic's native SAML implementation can support this design.
+* Explain the responsibilities of the broker versus WebLogic.
+* Recommend the simplest production-ready implementation that minimizes changes to the existing WebLogic application and backend services.
+* If any part of this design is not feasible with WebLogic 14, explain why and suggest the closest supported alternative.
