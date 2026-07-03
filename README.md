@@ -34,17 +34,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-Create a Spring Boot 3 authentication broker that acts as a SAML 2.0 Service Provider (SP).
+The Java web application (WAR) is already created and will be deployed on Oracle WebLogic 14.
 
-Requirements:
-- Use Spring Security SAML 2.0.
-- Configure SAML login with an external IDP using metadata XML.
-- Expose a login endpoint that redirects users to the IDP.
-- Expose an Assertion Consumer Service (ACS) endpoint to receive and validate the SAML response.
-- After successful authentication, extract the user's identity (username, email, roles).
-- Generate and sign a JWT using RS256.
-- Return the JWT to the desktop application (for now, a simple JSON response is sufficient).
-- Keep the broker authentication-only. Do not proxy or call backend services.
-- Organize the project with clear packages (config, controller, service, security, model).
-- Externalize all SAML and JWT configuration in application.yml.
-- Include sample configuration and comments explaining where to provide the IDP metadata, certificates, Entity ID, ACS URL, and JWT signing keys.
+I want to use Oracle WebLogic's native SAML 2.0 libraries/APIs instead of OpenSAML/Shibboleth.
+
+Please:
+
+* Identify the Oracle WebLogic SAML 2.0 libraries/APIs that should be used.
+* Show the required Maven dependencies (if any). If the libraries are provided by WebLogic, explain how to reference them instead of bundling them.
+* Explain how to configure the application to use WebLogic's built-in SAML 2.0 Service Provider functionality.
+* Show how to initiate SAML login, receive the authenticated user, and access the authenticated `Principal` and SAML attributes from application code.
+* Explain which parts are configured in the WebLogic Administration Console and which parts must be implemented in the application.
+* Do not use Spring Boot, Spring Security SAML, OpenSAML, or Shibboleth unless Oracle's native implementation requires them.
+* Target Oracle WebLogic Server 14.
+
